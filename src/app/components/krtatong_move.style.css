@@ -1,0 +1,48 @@
+
+:root{
+    --k-width: 100px;
+}
+
+.kratong-box {
+    width: var(--k-width);
+    height: var(--k-width);
+    background-color: red;
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
+} 
+
+.clickable-box {
+    width: var(--k-width);
+    height: var(--k-width);
+    cursor: pointer;
+}
+
+.k-message {
+    width: var(--k-width);
+    height: var(--k-width);
+    background-color: rgba(0, 255, 0, 0.5);
+    position: absolute;
+    pointer-events: none;
+    border-radius: 10px;
+    opacity: 0;
+}
+
+.message-text-area {
+    height: 100%;
+    width: 100%;
+    margin: 2%;
+    background-color: transparent;
+    border-color: transparent;
+    resize: none;
+}
+
+.sender-name-box {
+    position: absolute;
+    overflow: hidden
+}
+
+.sender-name {
+    text-align: center;
+    text-overflow: ellipsis;
+}

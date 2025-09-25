@@ -1,0 +1,6 @@
+#kratong-screen {
+    height: 500px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
