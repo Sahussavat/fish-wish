@@ -6,7 +6,6 @@
 .kratong-box {
     width: var(--k-width);
     height: var(--k-width);
-    background-color: red;
     visibility: hidden;
     position: absolute;
     z-index: 1;

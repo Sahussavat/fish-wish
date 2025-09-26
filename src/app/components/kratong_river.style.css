@@ -1,6 +1,9 @@
 #kratong-screen {
-    height: 500px;
+    height: 600px;
     width: 100%;
     overflow: hidden;
     position: relative;
+    background-repeat: repeat-x;
+    background: linear-gradient(0deg,rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 17%, rgba(237, 221, 83, 0) 100%)
+    , url('/imgs/background.png');
 }

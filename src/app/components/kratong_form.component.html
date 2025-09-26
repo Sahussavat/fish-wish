@@ -1,26 +1,36 @@
-<form target="hidden_iframe" id="kratong-form" action="https://docs.google.com/forms/d/e/1FAIpQLSeDWFm4upLqYxQv2TR0AvQlX6OHreEOO02jNJc8levlY0U28A/formResponse">
-    <div class="form-group">
-        <div class="input-label">
-            <label for="sender-name">ชื่อผู้อวยพร</label>
-            <span class="word-count">
-                <label id="sender-name-message">0</label>
-                <label>/{{max_name}}</label>
-            </span>
-        </div> 
-        <input class="form-control" name="entry.172556839" (input)="val_name();count_name();" id="sender-name">
-        <label id="sender-name-err">ชื่อผู้อวยพร</label>
+<div class="from-box">
+    <div class="kratong-form-box">
+    <form target="hidden_iframe" id="kratong-form" action="https://docs.google.com/forms/d/e/1FAIpQLSeDWFm4upLqYxQv2TR0AvQlX6OHreEOO02jNJc8levlY0U28A/formResponse">
+        <div class="form-group">
+            <div class="input-label">
+                <label for="sender-name">ชื่อผู้อวยพร</label>
+                <span class="word-count">
+                    <label id="sender-name-message">0</label>
+                    <label>/{{max_name}}</label>
+                </span>
+            </div> 
+            <input class="form-control" name="entry.172556839" (input)="val_name();count_name();" id="sender-name">
+            <div class="error-label">
+                <label id="sender-name-err"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-label">
+                <label for="kratong-des">คำอวยพร</label>
+                <span class="word-count">
+                    <label id="kratong-des-message">0</label>
+                    <label>/{{max_message}}</label>
+                </span>
+            </div> 
+            <textarea class="form-control" name="entry.1400774218" (input)="val_message();count_message();" id="kratong-des"></textarea>
+            <div class="error-label">
+            <label id="kratong-des-err"></label>
+            </div>
+        </div>
+    </form>
+    <div class="submit-btn-box">
+        <button class="btn btn-primary" (click)="do_sumbit()">ส่ง</button>
     </div>
-    <div class="form-group">
-        <div class="input-label">
-            <label for="kratong-des">คำอวยพร</label>
-            <span class="word-count">
-                <label id="kratong-des-message">0</label>
-                <label>/{{max_message}}</label>
-            </span>
-        </div> 
-        <textarea class="form-control" name="entry.1400774218" (input)="val_message();count_message();" id="kratong-des"></textarea>
-        <label id="kratong-des-err">ชื่อผู้อวยพร</label>
     </div>
-</form>
-<button class="btn-primary" (click)="do_sumbit()">ส่ง</button>
+</div>
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" ></iframe>

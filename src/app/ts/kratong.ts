@@ -52,9 +52,15 @@ export class Kratong {
         renderer.setStyle(sender_name_box, 'width', `${this.width_size*2}px`)
         renderer.setStyle(sender_name_box, 'height', `${this.width_size/2}px`)
         renderer.setStyle(sender_name_box, 'left', `${-Math.ceil(Math.abs(this.width_size*2 - this.width_size) / 2) }px`)
+        renderer.setStyle(sender_name_box, 'top', `${this.width_size}px`)
 
         let sender_name = renderer.createElement("p")
         renderer.addClass(sender_name, 'sender-name')
+
+        let img = renderer.createElement("img")
+        renderer.setStyle(img, 'width', `${this.width_size}px`)
+        renderer.setStyle(img, 'height', `${this.width_size}px`)
+        renderer.setAttribute(img, 'src', '/imgs/kratongs/fish1Texture.png')
 
         renderer.appendChild(parent, this.kratong_box)
         renderer.appendChild(sender_name, renderer.createText(sender))
@@ -63,6 +69,7 @@ export class Kratong {
         renderer.appendChild(clickable_box, sender_name_box)
         renderer.appendChild(sender_name_box, sender_name)
         renderer.appendChild(this.kratong_box, this.k_message)
+        renderer.appendChild(clickable_box, img)
         renderer.appendChild(this.kratong_box, clickable_box)
     }
 

@@ -1,8 +1,57 @@
 
+@media only screen and (max-width: 600px) {
+    .kratong-form-box{
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .kratong-form-box{
+        width: 70%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .kratong-form-box{
+        width: 30%;
+    }
+}
+
+.error-label {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
 .input-label{
-    display: inline;
+    display: block;
+    align-items: left;
+    margin-bottom: 5%;
 }
 
 .word-count{
     margin-left: 5%;
+}
+
+.kratong-form-box{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 1%;
+    background-color: brown;
+    border-radius: 10px;
+}
+
+.submit-btn-box{
+    text-align: center;
+}
+
+#kratong-des{
+    resize: none;
+    height: 100px;
+    display: block;
+}
+
+.from-box{
+    display: flex;
+    justify-content: center;
+    background-color: black;
 }
