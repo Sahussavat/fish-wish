@@ -52,7 +52,7 @@ export class Kratong {
         renderer.setStyle(sender_name_box, 'width', `${this.width_size*2}px`)
         renderer.setStyle(sender_name_box, 'height', `${this.width_size/2}px`)
         renderer.setStyle(sender_name_box, 'left', `${-Math.ceil(Math.abs(this.width_size*2 - this.width_size) / 2) }px`)
-        renderer.setStyle(sender_name_box, 'top', `${this.width_size}px`)
+        renderer.setStyle(sender_name_box, 'top', `${this.width_size + 10}px`)
 
         let sender_name = renderer.createElement("p")
         renderer.addClass(sender_name, 'sender-name')
@@ -76,7 +76,7 @@ export class Kratong {
     move_left(){
         this.renderer.setStyle(this.kratong_box, 'transform', `translate(${this.position_x}px, ${this.position_y}px)`)
         this.position_x = (this.position_x + 1)
-        this.position_y = (Math.ceil(Math.sin(this.position_x * 0.01 + 10)* 30 + this.height) )
+        this.position_y = (Math.ceil(Math.sin(this.position_x * 0.01 + 10)* 15 + this.height) )
         this.visible()
     }
 

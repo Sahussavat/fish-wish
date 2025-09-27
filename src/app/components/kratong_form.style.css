@@ -20,6 +20,7 @@
 .error-label {
     margin-top: 2%;
     margin-bottom: 2%;
+    color: crimson;
 }
 
 .input-label{
@@ -33,15 +34,18 @@
 }
 
 .kratong-form-box{
+    font-family: MM_KANUN;
+    color: whitesmoke;
     margin-top: 2%;
     margin-bottom: 2%;
     padding: 1%;
-    background-color: brown;
+    background-color: black;
     border-radius: 10px;
 }
 
 .submit-btn-box{
     text-align: center;
+    display: block;
 }
 
 #kratong-des{
@@ -54,4 +58,8 @@
     display: flex;
     justify-content: center;
     background-color: black;
+}
+
+.lds-dual-ring {
+    background-color: aqua;
 }

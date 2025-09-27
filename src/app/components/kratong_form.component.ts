@@ -29,7 +29,15 @@ export class KratongForm {
   this.name = this.element.nativeElement.querySelector('#sender-name');
   this.message = this.element.nativeElement.querySelector('#kratong-des');
   const hidden_iframe = this.element.nativeElement.querySelector('#hidden_iframe');
-  hidden_iframe.onload = ()=> this.clear()
+  hidden_iframe.onload = ()=> {
+    SendedKratong.getInstance().set_kratong({
+      sender_name: this.element.nativeElement.querySelector('#sender-name').value,
+      kratong_des: this.element.nativeElement.querySelector('#kratong-des').value
+    })
+    this.clear()
+    let loader = this.element.nativeElement.querySelector('#loader')
+    this.renderer.setStyle(loader, 'visibility', 'hidden')
+  }
  }
 
  clear(){
@@ -77,11 +85,9 @@ export class KratongForm {
  async do_sumbit(){
   const form : any = document.querySelector('#kratong-form');
   if(this.validation()){
-    SendedKratong.getInstance().set_kratong({
-      sender_name: this.element.nativeElement.querySelector('#sender-name').value,
-      kratong_des: this.element.nativeElement.querySelector('#kratong-des').value
-    })
     form.submit()
+    let loader = this.element.nativeElement.querySelector('#loader')
+    this.renderer.setStyle(loader, 'visibility', 'visible')
   }
  }
 }

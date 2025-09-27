@@ -54,7 +54,7 @@ export class Validation {
         if(len > max_message){
             this.renderer.setStyle(message_label, 'color', 'red')
         } else {
-            this.renderer.setStyle(message_label, 'color', 'black')
+            this.renderer.setStyle(message_label, 'color', '')
         }
         message_label.innerHTML = (len+'')
     }
