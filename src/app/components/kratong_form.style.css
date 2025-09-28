@@ -63,3 +63,20 @@
 .lds-dual-ring {
     background-color: aqua;
 }
+
+.kratong-img-size {
+    width: 50px;
+    height: 50px;
+}
+
+.dropdown-menu {
+    text-align: center;
+}
+
+.hidden-obj{
+    display: none;;
+}
+
+.dropup {
+    margin-bottom: 7%;
+}

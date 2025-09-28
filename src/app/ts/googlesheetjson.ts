@@ -22,7 +22,7 @@ interface TableData {
 export class GoogleSheetJSON {
     
 
-    constructor(private gid : string, private  option : Option, private s_str = "H", private e_str = "J"){    }
+    constructor(private gid : string, private  option : Option, private s_str = "H", private e_str = "K"){    }
 
     async get_data(start : number = 1, end : number = 1){
         try{

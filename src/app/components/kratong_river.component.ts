@@ -58,7 +58,6 @@ export class KratongRiver implements OnInit {
           this.previous_i = section_i
           let start = section_i * KratongRiver.MAX_KRATONGS + 1
           let end = Math.min(start + KratongRiver.MAX_KRATONGS - 1, n)
-          console.log(start, end)
           return new GoogleSheetJSON('1_f3xzqynXqxUMx2E1YkYZtXaOujZnvUnuHoIhMBU16w', {
                 'sheetName': 'ชีต1',
                 'start': start,
@@ -98,7 +97,8 @@ export class KratongRiver implements OnInit {
         if(sended_kra){
           wish = {
             'ชื่อผู้ส่ง': sended_kra['sender_name'],
-            'คำอวยพร': sended_kra['kratong_des']
+            'คำอวยพร': sended_kra['kratong_des'],
+            'ภาพกระทง': ""+sended_kra['kratong_pic_i'],
           }
         } else {
           wish = this.temp_wish_arr.pop()
@@ -113,7 +113,7 @@ export class KratongRiver implements OnInit {
         if(!wish){
             return
         }
-        let kratong = new Kratong(wish['ชื่อผู้ส่ง'], wish['คำอวยพร'], kratong_screen, this.renderer, h, size, z)
+        let kratong = new Kratong(wish['ชื่อผู้ส่ง'], wish['คำอวยพร'], wish['ภาพกระทง'], kratong_screen, this.renderer, h, size, z)
         kratong.set_on_toggle(()=>{
           if(kratong != this.current_reading){
             if(this.current_reading){

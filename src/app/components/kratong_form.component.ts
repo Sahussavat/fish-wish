@@ -1,6 +1,7 @@
 import { Component, Renderer2, ElementRef } from '@angular/core';
 import {Validation } from '../ts/validation'
 import { SendedKratong } from '../ts/sended_kratong';
+import { kratong_pics, get_kratong_pic } from '../ts/kratong_pic';
 
 enum ErrType{
   NOT_NULL,
@@ -17,6 +18,10 @@ export class KratongForm {
   private name : any
   private message : any
   private vald : Validation
+
+  kratong_img_i = 0
+
+  kra_pics = kratong_pics
   
  constructor(private renderer : Renderer2, private element : ElementRef){
     this.vald = new Validation(this.renderer)
@@ -32,7 +37,8 @@ export class KratongForm {
   hidden_iframe.onload = ()=> {
     SendedKratong.getInstance().set_kratong({
       sender_name: this.element.nativeElement.querySelector('#sender-name').value,
-      kratong_des: this.element.nativeElement.querySelector('#kratong-des').value
+      kratong_des: this.element.nativeElement.querySelector('#kratong-des').value,
+      kratong_pic_i: this.kratong_img_i
     })
     this.clear()
     let loader = this.element.nativeElement.querySelector('#loader')
@@ -45,6 +51,7 @@ export class KratongForm {
   this.message.value = ''
   this.count_name()
   this.count_message()
+  this.clear_kratong_pic()
  }
 
  count_name(){
@@ -82,12 +89,29 @@ export class KratongForm {
   return true
  }
 
+ on_change_pic(i : number){
+  let input_k_i = this.element.nativeElement.querySelector('#kratong-img-i')
+  this.renderer.setAttribute(input_k_i, 'value', i+'')
+  this.change_kratong_pic(i)
+  this.kratong_img_i = i
+ }
+
+ change_kratong_pic(i : number){
+  let img = this.element.nativeElement.querySelector('#kratong-img')
+  this.renderer.setAttribute(img, 'src', 'imgs/kratongs/'+get_kratong_pic(i))
+ }
+
+ clear_kratong_pic(){
+  this.change_kratong_pic(0)
+  this.kratong_img_i = 0
+ }
+
  async do_sumbit(){
   const form : any = document.querySelector('#kratong-form');
   if(this.validation()){
-    form.submit()
     let loader = this.element.nativeElement.querySelector('#loader')
     this.renderer.setStyle(loader, 'visibility', 'visible')
+    form.submit()
   }
  }
 }

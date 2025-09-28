@@ -1,5 +1,6 @@
 import { Renderer2 } from "@angular/core";
 import { Fade } from '../ts/fade'
+import { get_kratong_pic } from '../ts/kratong_pic'
 
 
 export class Kratong {
@@ -13,8 +14,12 @@ export class Kratong {
 
     private fade = new Fade()
 
-    constructor(sender : string, wish_des : string, private parent : HTMLElement, private renderer: Renderer2, private height : number = 100
+    constructor(sender : string, wish_des : string, pic_i : string, private parent : HTMLElement, private renderer: Renderer2, private height : number = 100
         , private size : number = 1, private z : number = 1){
+        let p_i = 0
+        if(!isNaN(+pic_i)){
+            p_i = parseInt(pic_i)
+        }
         this.width_size *= this.size
         this.kratong_box = renderer.createElement('div')
         renderer.setStyle(this.kratong_box, 'width', `${this.width_size}px`)
@@ -59,7 +64,7 @@ export class Kratong {
         let img = renderer.createElement("img")
         renderer.setStyle(img, 'width', `${this.width_size}px`)
         renderer.setStyle(img, 'height', `${this.width_size}px`)
-        renderer.setAttribute(img, 'src', 'imgs/kratongs/fish1Texture.png')
+        renderer.setAttribute(img, 'src', `imgs/kratongs/${get_kratong_pic(p_i)}`)
 
         renderer.appendChild(parent, this.kratong_box)
         renderer.appendChild(sender_name, renderer.createText(sender))

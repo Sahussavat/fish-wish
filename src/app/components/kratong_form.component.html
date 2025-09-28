@@ -27,6 +27,22 @@
             <label id="kratong-des-err"></label>
             </div>
         </div>
+        <div class="form-group">
+            <div class="input-label">
+                <label for="entry.1482066356">ภาพปลา</label>
+            </div> 
+            <div class="dropup">
+                <button class="btn btn-light dropdown-toggle" type="button" id="kratong-pic-select" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img class="kratong-img-size" id="kratong-img" src="imgs/kratongs/fish1Texture.png">
+                </button>
+                 <input class="hidden-obj" name="entry.1482066356" id="kratong-img-i" type="text" value="0">
+                <ul class="dropdown-menu" aria-labelledby="kratong-pic-select">
+                    @for (pic of kra_pics; track pic; let index = $index) { 
+                        <li><a class="dropdown-item" (click)="on_change_pic(index)"><img class="kratong-img-size" src="imgs/kratongs/{{pic}}"></a></li>
+                    }
+                </ul>
+            </div>
+        </div>
     </form>
     <div class="container text-center submit-btn-box">
         <div class="row">
@@ -41,4 +57,4 @@
     </div>
     </div>
 </div>
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" ></iframe>
+<iframe name="hidden_iframe" class="hidden-obj" id="hidden_iframe"></iframe>

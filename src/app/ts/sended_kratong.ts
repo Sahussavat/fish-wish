@@ -1,7 +1,8 @@
 
 export interface kratong_data {
     sender_name: string,
-    kratong_des: string
+    kratong_des: string,
+    kratong_pic_i: number
 }
 
 export class SendedKratong {
