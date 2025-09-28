@@ -59,7 +59,7 @@ export class Kratong {
         let img = renderer.createElement("img")
         renderer.setStyle(img, 'width', `${this.width_size}px`)
         renderer.setStyle(img, 'height', `${this.width_size}px`)
-        renderer.setAttribute(img, 'src', `imgs/kratongs/fish1Texture.png`)
+        renderer.setAttribute(img, 'src', 'imgs/kratongs/fish1Texture.png')
 
         renderer.appendChild(parent, this.kratong_box)
         renderer.appendChild(sender_name, renderer.createText(sender))
