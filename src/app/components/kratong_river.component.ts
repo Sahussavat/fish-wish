@@ -48,11 +48,11 @@ export class KratongRiver implements OnInit {
             return []
           }
           let section_max = Math.floor(n/KratongRiver.MAX_KRATONGS)
-          let section_i = Math.floor((section_max - 1) * Math.random())
+          let section_i = Math.round((section_max - 1) * Math.random())
           let max_loop = 3
           let m_c = 0
           while(section_i === this.previous_i && section_max > 1 && m_c < max_loop){
-            section_i = Math.floor((section_max - 1) * Math.random())
+            section_i = Math.round((section_max - 1) * Math.random())
             m_c++
           }
           this.previous_i = section_i

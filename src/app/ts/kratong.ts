@@ -1,6 +1,5 @@
 import { Renderer2 } from "@angular/core";
 import { Fade } from '../ts/fade'
-import { reduce } from "rxjs";
 
 
 export class Kratong {
@@ -8,7 +7,7 @@ export class Kratong {
     private kratong_box : HTMLElement
     private k_message : HTMLElement 
     private message_opacity : number = 1
-    private position_x : number = -this.width_size 
+    private position_x : number = -this.width_size * 2
     private position_y : number = 0
     private on_toggle : CallableFunction | null = null
 
@@ -22,7 +21,7 @@ export class Kratong {
         renderer.setStyle(this.kratong_box, 'height', `${this.width_size}px`)
         renderer.addClass(this.kratong_box, 'kratong-box')
         renderer.setStyle(this.kratong_box, 'z-index', this.z)
-        renderer.setStyle(this.kratong_box, 'transform', `translate(${-this.width_size}px, ${this.position_y}px)`)
+        renderer.setStyle(this.kratong_box, 'transform', `translate(${this.position_x}px, ${this.position_y}px)`)
 
         let clickable_box = renderer.createElement('div')
         renderer.setStyle(clickable_box, 'width', `${this.width_size}px`)
