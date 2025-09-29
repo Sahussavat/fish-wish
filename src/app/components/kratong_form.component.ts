@@ -27,8 +27,8 @@ export class KratongForm {
     this.vald = new Validation(this.renderer)
  }
 
- public max_name = 20
- public max_message = 200
+ public max_name = 10
+ public max_message = 100
 
  ngOnInit(){
   this.name = this.element.nativeElement.querySelector('#sender-name');
