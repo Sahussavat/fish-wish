@@ -8,7 +8,8 @@ export class Kratong {
     private kratong_box : HTMLElement
     private k_message : HTMLElement 
     private message_opacity : number = 1
-    private position_x : number = -this.width_size * 2
+    private sender_name_box_size : number = this.width_size * 3
+    private position_x : number = -this.sender_name_box_size
     private position_y : number = 0
     private on_toggle : CallableFunction | null = null
 
@@ -53,9 +54,9 @@ export class Kratong {
 
         let sender_name_box = renderer.createElement("div")
         renderer.addClass(sender_name_box, 'sender-name-box')
-        renderer.setStyle(sender_name_box, 'width', `${this.width_size*2}px`)
+        renderer.setStyle(sender_name_box, 'width', `${this.sender_name_box_size}px`)
         renderer.setStyle(sender_name_box, 'height', `${this.width_size/2}px`)
-        renderer.setStyle(sender_name_box, 'left', `${-Math.ceil(Math.abs(this.width_size*2 - this.width_size) / 2) }px`)
+        renderer.setStyle(sender_name_box, 'left', `${-Math.ceil(Math.abs(this.sender_name_box_size - this.width_size) / 2) }px`)
         renderer.setStyle(sender_name_box, 'top', `${this.width_size + 10}px`)
 
         let sender_name = renderer.createElement("p")

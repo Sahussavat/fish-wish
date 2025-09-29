@@ -43,6 +43,7 @@
 }
 
 .sender-name {
+    white-space: nowrap;
     position: absolute;
     width: fit-content;
     text-align: center;
