@@ -107,6 +107,10 @@ export class Kratong {
         return this.kratong_box
     }
 
+    get_width_size(){
+        return this.width_size
+    }
+
     toggle_message(){
         this.fade.toggle(this.k_message, this.renderer, this.message_opacity)
     }
