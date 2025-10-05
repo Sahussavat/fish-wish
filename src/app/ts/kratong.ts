@@ -80,7 +80,7 @@ export class Kratong {
 
     move_left(){
         this.renderer.setStyle(this.kratong_box, 'transform', `translate(${this.position_x}px, ${this.position_y}px)`)
-        this.position_x = (this.position_x + 1)
+        this.position_x += 1
         this.position_y = (Math.ceil(Math.sin(this.position_x * 0.01 + 10)* 15 + this.height) )
         this.visible()
     }
