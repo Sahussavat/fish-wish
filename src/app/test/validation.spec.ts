@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { Validation } from "../ts/validation";
+import { ErrType, Validation } from "../ts/validation";
 import { Renderer2, Type } from "@angular/core";
 import { KratongForm } from "../components/kratong_form.component";
 import { By } from "@angular/platform-browser";
@@ -35,6 +35,26 @@ describe('Validation', () => {
 
         it('should not null fn return false when string empty', () => {
             expect(valid.is_not_null("")).toBeFalse()
+        });
+    })
+
+    describe('validate', () => {
+        it('should return true when input pass all condition', () => {
+            let text = "wwwww"
+            expect(valid.validate(text, [ErrType.NOT_NULL])).toBeTrue()
+            expect(valid.validate(text, [[ErrType.MAX_STRING, 100]])).toBeTrue()
+            expect(valid.validate(text, [ErrType.NOT_NULL, [ErrType.MAX_STRING, 100]])).toBeTrue()
+        });
+
+        it('should return false when one condition not pass', () => {
+            let null_text = ""
+            let over_len_text = "wwwwwwwwww"
+            expect(valid.validate(null_text, [ErrType.NOT_NULL])).toBeFalse()
+            expect(valid.validate(over_len_text, [[ErrType.MAX_STRING, 1]])).toBeFalse()
+            expect(valid.validate(over_len_text, [[ErrType.MAX_STRING, 0]])).toBeFalse()
+            expect(valid.validate(over_len_text, [[ErrType.MAX_STRING, -1]])).toBeFalse()
+            expect(valid.validate(over_len_text, [ErrType.NOT_NULL, [ErrType.MAX_STRING, 1]])).toBeFalse()
+            expect(valid.validate(over_len_text, [[ErrType.MAX_STRING, 1], ErrType.NOT_NULL])).toBeFalse()
         });
     })
     

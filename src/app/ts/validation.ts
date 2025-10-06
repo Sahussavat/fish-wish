@@ -1,6 +1,6 @@
 import { Renderer2 } from "@angular/core";
 
-enum ErrType{
+export enum ErrType{
   NOT_NULL,
   MAX_STRING,
 }
@@ -38,8 +38,9 @@ export class Validation {
                 }
                 break;
             case ErrType.MAX_STRING:
-                if(check_is_pass && e_option && typeof v === "string")
+                if(check_is_pass && e_option !== null && typeof v === "string"){
                     check_is_pass = this.is_under_max_len([...v].length, e_option)
+                }
                 if(label_err && !check_is_pass){
                     let max_len = e_option ? e_option :0 
                     this.show_err_msg(this.get_max_len_err_msg(max_len), label_err)

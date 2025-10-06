@@ -1,12 +1,7 @@
 import { Component, Renderer2, ElementRef } from '@angular/core';
-import {Validation } from '../ts/validation'
+import { ErrType, Validation } from '../ts/validation'
 import { SendedKratong } from '../ts/sended_kratong';
 import { kratong_pics, get_kratong_pic } from '../ts/kratong_pic';
-
-enum ErrType{
-  NOT_NULL,
-  MAX_STRING,
-}
 
 @Component({
   selector: 'kratong-form',
