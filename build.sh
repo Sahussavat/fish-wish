@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if find deploy/ -mindepth 1 | read; then
-    rm -r deploy/*
+if [ -e deploy ]; then
+    rm -r deploy
 fi
 
 mkdir -p deploy
