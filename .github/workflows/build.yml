@@ -32,3 +32,11 @@ jobs:
       run: |
         npm ci
         npm run build
+    
+    - name: Run bash build
+      run: bash build.sh
+
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: deploy
