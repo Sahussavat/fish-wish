@@ -1,5 +1,4 @@
 #!/bin/bash
-echo "Hello, World!"
 
 if find deploy/ -mindepth 1 | read; then
     rm -r deploy/*
