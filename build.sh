@@ -1,9 +1,10 @@
 #!/bin/bash
 
-if [ ! -d deploy ]
-then
-  mkdir -p deploy
+if find deploy/ -mindepth 1 | read; then
+    rm -r deploy/*
 fi
+
+mkdir -p deploy
 
 cp dist/kratong/3rdpartylicenses.txt dist/kratong/prerendered-routes.json deploy/
 
