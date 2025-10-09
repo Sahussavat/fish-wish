@@ -19,11 +19,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-      
-    - name: Merge main into production
-      uses: devmasx/merge-branch@master
       with:
-        type: now
-        from_branch: main
-        target_branch: production
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{secrets.PAT}}
+    - run: |
+        git merge main production
