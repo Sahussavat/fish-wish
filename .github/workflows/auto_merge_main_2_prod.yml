@@ -12,7 +12,12 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-    - name: create pull request
-      run: gh pr create -B production -H main --title 'Merge main into production' --body 'Created by Github action'
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v5
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: "Automated changes"
+        branch: "production"
+        base: "main"
+        title: "Automated PR"
+        body: "This PR was created automatically via GitHub Actions."
