@@ -29,12 +29,10 @@ jobs:
         cache-dependency-path: package-lock.json
     - run: npm ci
     - name: Run test
-      id: tests
       run: npm run test:ci
 
     - name: Install and build
       run: |
-        if: steps.tests.outcome == 'success'
         npm run build
     
     - name: Run bash build
