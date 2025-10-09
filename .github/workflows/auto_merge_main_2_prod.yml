@@ -17,7 +17,7 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         commit-message: "Automated changes"
-        branch: "production"
-        base: "main"
+        branch: production
+        base: main
         title: "Automated PR"
         body: "This PR was created automatically via GitHub Actions."
