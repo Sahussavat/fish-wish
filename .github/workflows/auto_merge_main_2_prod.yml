@@ -14,15 +14,14 @@ jobs:
     steps:
     - uses: actions/checkout@v5
       with:
-        ref: main
-    - name: reset main
+        ref: production
+    - name: Reset main
       run: |
-        git fetch --all
-        git checkout production
-        git merge main origin/production
-        git push origin origin/production
-    # - name: Create pull request
-    #   uses: peter-evans/create-pull-request@v7
-    #   with:
-    #     branch: production
-    #     title: Merge to product
+          git fetch origin main:main
+          git reset --hard main
+    - name: Create pull request
+      uses: peter-evans/create-pull-request@v7
+      with:
+        branch: production
+        base: main
+        title: Merge to product
