@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v5
       with:
-        ref: production
+        ref: main
     - name: reset main
       run: |
         git fetch origin main:main
@@ -22,5 +22,5 @@ jobs:
     - name: Create pull request
       uses: peter-evans/create-pull-request@v7
       with:
-        branch: production-pr
+        branch: production
         title: Merge to product
