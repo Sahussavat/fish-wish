@@ -13,13 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-      with:
-          ref: production
           
     - run: |
-        git fetch origin main:main
-        git reset --hard main
-        
-    - uses: peter-evans/create-pull-request@v7
-      with:
-        branch: production
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
