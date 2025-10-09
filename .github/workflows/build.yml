@@ -5,10 +5,8 @@ name: Build
 
 on:
 
-  pull_request:
+  push:
     branches: [ "production" ]
-    types:
-      - closed
 
 permissions:
   contents: write
