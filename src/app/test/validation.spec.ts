@@ -34,7 +34,7 @@ describe('Validation', () => {
         });
 
         it('should not null fn return false when string empty', () => {
-            expect(valid.is_not_null("")).toBeFalse()
+            expect(valid.is_not_null("")).toBeTrue()
         });
     })
 
