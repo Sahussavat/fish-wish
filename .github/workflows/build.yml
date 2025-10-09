@@ -4,10 +4,9 @@
 name: Build
 
 on:
-  push:
-    branches: [ "production" ]
 
   pull_request:
+    branches: [ "production" ]
     types:
       - closed
 
@@ -16,9 +15,8 @@ permissions:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
+    if: github.event.pull_request.merged == true
     strategy:
       matrix:
         node-version: [20.x, 22.x]
