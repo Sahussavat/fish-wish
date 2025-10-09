@@ -19,8 +19,8 @@ jobs:
       run: |
         git fetch --all
         git checkout production
-        git merge main production
-        git push origin production
+        git merge main origin/production
+        git push origin origin/production
     # - name: Create pull request
     #   uses: peter-evans/create-pull-request@v7
     #   with:
