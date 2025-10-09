@@ -12,7 +12,16 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-    - name: create pull request
-      # run: gh pr create -B production -H main --title 'Merge main into production' --body 'Created by Github action'
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - uses: actions/checkout@v5
+      with:
+        ref: production
+    - name: Reset main
+      run: |
+          git fetch origin main:main
+          git reset --hard main
+    - name: Create pull request
+      uses: peter-evans/create-pull-request@v7
+      with:
+        branch: production
+        base: main
+        title: Merge to product
