@@ -13,6 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: create pull request
-      run: gh pr create -B production -H main --title 'Merge main into production' --body 'Created by Github action'
+      # run: gh pr create -B production -H main --title 'Merge main into production' --body 'Created by Github action'
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
