@@ -18,6 +18,9 @@ jobs:
     - name: reset main
       run: |
         git fetch --all
+        git checkout production
+        git merge main production
+        git push origin production
     # - name: Create pull request
     #   uses: peter-evans/create-pull-request@v7
     #   with:
