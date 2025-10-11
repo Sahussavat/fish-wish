@@ -4,13 +4,13 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 ## Setup
 
-After forking the project, use the following command.
+After forking the project, use the following command:
 
 ```bash
 git clone https://github.com/Sahussavat/fish-wish.git
 ```
 
-Use this command in cloned project folder
+Use this command in cloned project folder:
 
 ```bash
 npm install
