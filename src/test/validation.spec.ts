@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { ErrType, Validation } from "../ts/validation";
+import { ErrType, Validation } from "../app/ts/validation";
 import { Renderer2, Type } from "@angular/core";
-import { KratongForm } from "../components/kratong_form.component";
+import { KratongForm } from "../app/components/kratong_form.component";
 import { By } from "@angular/platform-browser";
 
 describe('Validation', () => {

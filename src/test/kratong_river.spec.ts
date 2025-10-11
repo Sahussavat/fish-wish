@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-import { KratongRiver } from '../components/kratong_river.component';
-import { Kratong } from '../ts/kratong';
+import { KratongRiver } from '../app/components/kratong_river.component';
+import { Kratong } from '../app/ts/kratong';
 import { Renderer2, Type } from '@angular/core';
 
 describe('KratongRiver', () => {
