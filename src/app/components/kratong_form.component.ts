@@ -14,6 +14,14 @@ export class KratongForm {
   private message : any
   private vald : Validation
 
+  form_names = {
+    sender_name:"entry.172556839",
+    kratong_des:"entry.1400774218",
+    kratong_pic_i:"entry.1482066356",
+  }
+
+  form_sent_to_url = "https://docs.google.com/forms/d/e/1FAIpQLSeDWFm4upLqYxQv2TR0AvQlX6OHreEOO02jNJc8levlY0U28A/formResponse"
+
   kratong_img_i = 0
 
   kra_pics = kratong_pics

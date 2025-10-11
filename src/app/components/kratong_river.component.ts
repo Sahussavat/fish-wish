@@ -27,6 +27,8 @@ export class KratongRiver implements OnInit {
 
     private previous_i : number | null = null
 
+    private sheet_id = "1_f3xzqynXqxUMx2E1YkYZtXaOujZnvUnuHoIhMBU16w"
+
     constructor(private renderer: Renderer2, private elementRef: ElementRef){}
 
     ngOnInit(){
@@ -37,7 +39,7 @@ export class KratongRiver implements OnInit {
     }
 
     load_data(){
-      return new GoogleSheetJSON('1_f3xzqynXqxUMx2E1YkYZtXaOujZnvUnuHoIhMBU16w', {
+      return new GoogleSheetJSON(this.sheet_id, {
             'sheetName': 'ชีต1',
         }, 'G', 'G').parse().then((d)=>{
             let n : number = parseInt(d[0]['count'])
@@ -58,7 +60,7 @@ export class KratongRiver implements OnInit {
           this.previous_i = section_i
           let start = section_i * KratongRiver.MAX_KRATONGS + 1
           let end = Math.min(start + KratongRiver.MAX_KRATONGS - 1, n)
-          return new GoogleSheetJSON('1_f3xzqynXqxUMx2E1YkYZtXaOujZnvUnuHoIhMBU16w', {
+          return new GoogleSheetJSON(this.sheet_id, {
                 'sheetName': 'ชีต1',
                 'start': start,
                 'end': end
@@ -68,9 +70,10 @@ export class KratongRiver implements OnInit {
 
     start_loop(){
       this.kratong_spawn(400, 1, 5)
-      setTimeout(()=>{
+      let do_timeout = new LoopObj(()=>{
         this.kratong_spawn(250, 0.75, 4)
-      }, 2500)
+      }, 100)
+      do_timeout.running_timeout()
       this.kratong_animation_loop()
     }
 
