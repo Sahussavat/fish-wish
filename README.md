@@ -10,7 +10,7 @@ After forking the project, use the following command:
 git clone https://github.com/Sahussavat/fish-wish.git
 ```
 
-Use this command in cloned project folder:
+Then, use the following command in cloned project folder to install modules:
 
 ```bash
 npm install
