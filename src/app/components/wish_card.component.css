@@ -1,0 +1,36 @@
+
+.card-box {
+    background-color: rgb(	163, 72, 90);
+    border-radius: 30px;
+    height: 100%;
+    box-shadow: 10px 10px 20px;
+}
+
+.inside-box {
+    padding: 5%;
+    height: 100%;
+}
+
+.name-box {
+    height: 10%;
+    font-size: 30px;
+}
+
+.text-des-box {
+    height: 50%;
+    min-height: 300px;
+}
+
+.data-box {
+    height: 10%;
+    min-height: 100px;
+}
+
+textarea {
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    border-color: transparent;
+    color: #222222;
+    resize: none;
+}

@@ -1,13 +1,14 @@
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
-import { GoogleSheetJSON, data } from '../ts/googlesheetjson';
+import { GoogleSheetJSON, Data, OptionLoadData } from '../ts/googlesheetjson';
 import { SendedKratong, kratong_data } from '../ts/sended_kratong';
 import { Kratong } from '../ts/kratong'
 import { LoopObj } from '../ts/loop_object';
+import { Constant } from '../ts/constant';
 
 @Component({
   selector: 'kratong-river',
   templateUrl: './kratong_river.component.html',
-  styleUrls: ['./kratong_river.style.css', './krtatong_move.style.css'],
+  styleUrls: ['./kratong_river.component.css', './krtatong_move.component.css'],
 })
 
 export class KratongRiver implements OnInit {
@@ -18,8 +19,8 @@ export class KratongRiver implements OnInit {
     private static MAX_KRATONGS = 4
     private loop_arr : Array<LoopObj> = []
 
-    private wish_arr : Array<data> = []
-    private temp_wish_arr : Array<data> = []
+    private wish_arr : Array<Data> = []
+    private temp_wish_arr : Array<Data> = []
 
     private current_reading : Kratong | null = null
 
@@ -27,7 +28,10 @@ export class KratongRiver implements OnInit {
 
     private previous_i : number | null = null
 
-    private sheet_id = "1_f3xzqynXqxUMx2E1YkYZtXaOujZnvUnuHoIhMBU16w"
+    private load_data_option : OptionLoadData = {
+        sheet_name: Constant.SHEET_NAME,
+        count_col: Constant.WHAT_COL_TO_GET_ALL_COUNT,
+      } 
 
     constructor(private renderer: Renderer2, private elementRef: ElementRef){}
 
@@ -39,33 +43,23 @@ export class KratongRiver implements OnInit {
     }
 
     load_data(){
-      return new GoogleSheetJSON(this.sheet_id, {
-            'sheetName': 'ชีต1',
-        }, 'G', 'G').parse().then((d)=>{
-            let n : number = parseInt(d[0]['count'])
-            return n
-        })
-        .then((n)=>{
-          if(!n){
-            return []
-          }
-          let section_max = Math.floor(n/KratongRiver.MAX_KRATONGS)
-          let section_i = Math.round((section_max - 1) * Math.random())
-          let max_loop = 3
-          let m_c = 0
-          while(section_i === this.previous_i && section_max > 1 && m_c < max_loop){
-            section_i = Math.round((section_max - 1) * Math.random())
-            m_c++
-          }
-          this.previous_i = section_i
-          let start = section_i * KratongRiver.MAX_KRATONGS + 1
-          let end = Math.min(start + KratongRiver.MAX_KRATONGS - 1, n)
-          return new GoogleSheetJSON(this.sheet_id, {
-                'sheetName': 'ชีต1',
-                'start': start,
-                'end': end
-          }).parse()
-        })
+      return GoogleSheetJSON.load_data(Constant.SHEET_ID, (n : number)=> this.finding_start_n_end_i(n), this.load_data_option)
+    }
+
+    finding_start_n_end_i(n : number){
+      let section_max = Math.floor(n/KratongRiver.MAX_KRATONGS)
+      let section_i = Math.round((section_max - 1) * Math.random())
+      let max_loop = 3
+      let m_c = 0
+      while(section_i === this.previous_i && section_max > 1 && m_c < max_loop){
+        section_i = Math.round((section_max - 1) * Math.random())
+        m_c++
+      }
+      this.previous_i = section_i
+      let start = section_i * KratongRiver.MAX_KRATONGS + 1
+      let end = Math.min(start + KratongRiver.MAX_KRATONGS - 1, n)
+
+      return [ start, end ]
     }
 
     start_loop(){
@@ -96,7 +90,7 @@ export class KratongRiver implements OnInit {
         if(s_k.is_have_data()){
           sended_kra = s_k.get_kratong()
         } 
-        let wish : data | undefined | null 
+        let wish : Data | undefined | null 
         if(sended_kra){
           wish = {
             'ชื่อผู้ส่ง': sended_kra['sender_name'],

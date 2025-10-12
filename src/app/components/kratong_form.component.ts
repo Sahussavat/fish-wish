@@ -6,7 +6,7 @@ import { kratong_pics, get_kratong_pic } from '../ts/kratong_pic';
 @Component({
   selector: 'kratong-form',
   templateUrl: './kratong_form.component.html',
-  styleUrls: ['./kratong_form.style.css'],
+  styleUrls: ['./kratong_form.component.css'],
 })
 
 export class KratongForm {

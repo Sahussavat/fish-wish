@@ -3,7 +3,7 @@ interface Option {
     start?: number,
     end?: number,
 }
-export interface data {
+export interface Data {
     [key :string]: string
 }
 interface V {
@@ -17,6 +17,11 @@ interface RowData {
 }
 interface TableData {
     'table': RowData
+}
+
+export interface OptionLoadData {
+    sheet_name : string,
+    count_col : string,
 }
 
 export class GoogleSheetJSON {
@@ -52,7 +57,7 @@ export class GoogleSheetJSON {
     }
 
     async parse(){
-        let ret : Array<data> = []
+        let ret : Array<Data> = []
         let start = this.option.start ? this.option.start + 1 : 2
         let end = this.option.end ? this.option.end + 1 : 2
         let f_r = await this.get_data()
@@ -60,12 +65,32 @@ export class GoogleSheetJSON {
         let data_rows = await this.get_data(start, end)
         for(let i=0;i<data_rows.length;i++){
             let data : V[] = data_rows[i]
-            let d : data = {}
+            let d : Data = {}
             for(let k =0;k<Object.keys(first_row).length;k++){
                 d[first_row[k]['v'].replaceAll("string:","").replaceAll(" ","")] = data[k]['v'].replaceAll("string:","")
             }
             ret.push(d)
         }
         return ret
+    }
+
+    static load_data(sheet_id : string, start_n_end_fn : CallableFunction, option : OptionLoadData){
+      return new GoogleSheetJSON(sheet_id, {
+            'sheetName': option.sheet_name,
+        }, option.count_col, option.count_col).parse().then((d)=>{
+            let n : number = parseInt(d[0]['count'])
+            return n
+        })
+        .then((n)=>{
+          if(!n){
+            return []
+          }
+          let [ start, end ] = start_n_end_fn(n)
+          return new GoogleSheetJSON(sheet_id, {
+                'sheetName': option.sheet_name,
+                'start': start,
+                'end': end
+          }).parse()
+        })
     }
 }
