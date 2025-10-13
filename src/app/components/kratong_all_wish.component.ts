@@ -96,16 +96,16 @@ export class KratongAllWish implements OnInit {
     let i = current_page_i - 1 - Number(current_page_i >= page_max)
     let end_i = current_page_i + 1 + Number(current_page_i <= 1)
     let page_i_name = "page_i"
-    this.add_link(ul, [this.get_data_for_create_btn_link(`./${Constant.WISHES_PAGE_NAME}?${page_i_name}=${1}`, 'หน้าแรก', current_page_i <= 1),
-      this.get_data_for_create_btn_link(`./${Constant.WISHES_PAGE_NAME}?${page_i_name}=${(current_page_i-1)}`, 'ย้อน', current_page_i <= 1)])
+    this.add_link(ul, [this.get_data_for_create_btn_link(`./${Constant.WISHES_PAGE_NAME}?${page_i_name}=${1}`, '<<<', current_page_i <= 1),
+      this.get_data_for_create_btn_link(`./${Constant.WISHES_PAGE_NAME}?${page_i_name}=${(current_page_i-1)}`, '<', current_page_i <= 1)])
     while(i <= end_i && i <= page_max){
       if(i > 0){
         this.add_link(ul, [this.get_data_for_create_btn_link(`./${Constant.WISHES_PAGE_NAME}?${page_i_name}=${i}`, ''+i, false, current_page_i == i)])
       }
       i++
     }
-    this.add_link(ul, [this.get_data_for_create_btn_link(`./${Constant.WISHES_PAGE_NAME}?${page_i_name}=${current_page_i+1}`, 'ถัดไป', current_page_i >= page_max),
-      this.get_data_for_create_btn_link(`./${Constant.WISHES_PAGE_NAME}?${page_i_name}=${page_max}`, 'หน้าสุดท้าย', current_page_i >= page_max)])
+    this.add_link(ul, [this.get_data_for_create_btn_link(`./${Constant.WISHES_PAGE_NAME}?${page_i_name}=${current_page_i+1}`, '>', current_page_i >= page_max),
+      this.get_data_for_create_btn_link(`./${Constant.WISHES_PAGE_NAME}?${page_i_name}=${page_max}`, '>>>', current_page_i >= page_max)])
     this.renderer.addClass(ul, 'pagination')
     this.renderer.addClass(ul, 'justify-content-center')
     this.renderer.appendChild(nav, ul)
