@@ -1,0 +1,18 @@
+
+.modal-content {
+    font-family: MM_KANUN;
+    background-color: rgb(	163, 72, 90);
+    box-shadow: 10px 10px 20px;
+}
+
+.modal-body {
+    border-color: black;
+}
+
+.modal-header {
+    border-color: black;
+}
+
+.modal-footer {
+    border-color: black;
+}
