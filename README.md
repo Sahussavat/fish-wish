@@ -26,7 +26,7 @@ This method will also auto duplicate google forms for this sheet too.
 (Duplicated google forms and google sheet, both must be share to public). 
 
 In `src\app\ts\constant.ts` change `SHEET_ID` into your duplicated google sheet url ID.
-You can find your google sheet ID in https://docs.google.com/spreadsheets/d/`<SHEET_ID>`
+You can find your google sheet ID in https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID
 
 After that, go to duplicated google forms page. Open inspect tab, then go to `Network` (Wifi symbol).
 
