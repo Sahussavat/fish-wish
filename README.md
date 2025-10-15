@@ -31,6 +31,7 @@ You can find your google sheet ID in https://docs.google.com/spreadsheets/d/YOUR
 After that, go to duplicated google forms page. Open inspect tab, then go to `Network` (Wifi symbol).
 
 Enter dummy data into your form (put the question title into the input for easier setting up).
+PS. After finished setting up, you can manually delete dummy data in your google sheet.
 
 Submit the form, then click at `formResponse` in table `Name`. You will find
 the `entry.<INPUT_ID>`. These Entry ID will be use for setup custom form in web page.
