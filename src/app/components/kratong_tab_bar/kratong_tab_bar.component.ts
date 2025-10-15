@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { CommonModule } from '@angular/common';
 import { Router } from "@angular/router";
-import { CreditModal } from "./credit_modal.component";
+import { CreditModal } from "../credit_modal/credit_modal.component";
 
 @Component({
   selector: 'kratong-tab-bar',

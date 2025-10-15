@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { KratongRiver } from "./kratong_river.component";
-import { KratongForm } from "./kratong_form.component";
-import { KratongTabBar } from "./kratong_tab_bar.component";
+import { KratongRiver } from "../kratong_river/kratong_river.component";
+import { KratongForm } from "../kratong_form/kratong_form.component";
+import { KratongTabBar } from "../kratong_tab_bar/kratong_tab_bar.component";
 
 @Component({
   selector: 'app-root',

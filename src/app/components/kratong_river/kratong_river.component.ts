@@ -1,14 +1,14 @@
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
-import { GoogleSheetJSON, Data, OptionLoadData } from '../ts/googlesheetjson';
-import { SendedKratong, kratong_data } from '../ts/sended_kratong';
-import { Kratong } from '../ts/kratong'
-import { LoopObj } from '../ts/loop_object';
-import { Constant } from '../ts/constant';
+import { GoogleSheetJSON, Data, OptionLoadData } from '../../ts/googlesheetjson';
+import { SendedKratong, kratong_data } from '../../ts/sended_kratong';
+import { Kratong } from '../../ts/kratong'
+import { LoopObj } from '../../ts/loop_object';
+import { Constant } from '../../ts/constant';
 
 @Component({
   selector: 'kratong-river',
   templateUrl: './kratong_river.component.html',
-  styleUrls: ['./kratong_river.component.css', './krtatong_move.component.css'],
+  styleUrls: ['./kratong_river.component.css', '../krtatong_move.component.css'],
 })
 
 export class KratongRiver implements OnInit {

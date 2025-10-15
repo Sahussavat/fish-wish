@@ -1,7 +1,7 @@
 import { Component, Renderer2, ElementRef } from '@angular/core';
-import { ErrType, Validation } from '../ts/validation'
-import { SendedKratong } from '../ts/sended_kratong';
-import { kratong_pics, get_kratong_pic } from '../ts/kratong_pic';
+import { ErrType, Validation } from '../../ts/validation'
+import { SendedKratong } from '../../ts/sended_kratong';
+import { kratong_pics, get_kratong_pic } from '../../ts/kratong_pic';
 
 @Component({
   selector: 'kratong-form',

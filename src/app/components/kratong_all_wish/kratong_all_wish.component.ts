@@ -1,9 +1,9 @@
 import { Component, ElementRef, OnInit, Renderer2 } from "@angular/core";
-import { KratongTabBar } from "./kratong_tab_bar.component";
+import { KratongTabBar } from "../kratong_tab_bar/kratong_tab_bar.component";
 import { ActivatedRoute, Params } from "@angular/router";
-import { Data, GoogleSheetJSON, OptionLoadData } from "../ts/googlesheetjson";
-import { create_card } from "./wish_card_template.component";
-import { Constant } from "../ts/constant";
+import { Data, GoogleSheetJSON, OptionLoadData } from "../../ts/googlesheetjson";
+import { create_card } from "../wish_card_template/wish_card_template.component";
+import { Constant } from "../../ts/constant";
 
 interface UlCreateData {
   href: string,
@@ -16,7 +16,7 @@ interface UlCreateData {
     selector: 'kratong-all-wish',
     templateUrl: './kratong_all_wish.component.html',
     imports: [KratongTabBar],
-    styleUrls: ['./kratong_all_wish.component.css', './wish_card.component.css'],
+    styleUrls: ['./kratong_all_wish.component.css', '../wish_card_template/wish_card_template.component.css'],
 })
 
 export class KratongAllWish implements OnInit {

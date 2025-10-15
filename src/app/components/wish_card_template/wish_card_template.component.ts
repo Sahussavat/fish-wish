@@ -1,5 +1,5 @@
 import { Renderer2 } from '@angular/core';
-import { Data } from '../ts/googlesheetjson';
+import { Data } from '../../ts/googlesheetjson';
 
 function date_to_string(date : string = ""){
   let ret = date
