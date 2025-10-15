@@ -15,7 +15,7 @@ interface C {
 interface RowData {
     'rows': Array<C>
 }
-interface TableData {
+export interface TableData {
     'table': RowData
 }
 
@@ -75,7 +75,7 @@ export class GoogleSheetJSON {
     }
 
     static load_data(sheet_id : string, start_n_end_fn : CallableFunction, option : OptionLoadData){
-      return new GoogleSheetJSON(sheet_id, {
+        let test = new GoogleSheetJSON(sheet_id, {
             'sheetName': option.sheet_name,
         }, option.count_col, option.count_col).parse().then((d)=>{
             let n : number = parseInt(d[0]['count'])
@@ -92,5 +92,6 @@ export class GoogleSheetJSON {
                 'end': end
           }).parse()
         })
+      return test
     }
 }
