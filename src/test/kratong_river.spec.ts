@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { KratongRiver } from '../app/components/kratong_river.component';
+import { KratongRiver } from '../app/components/kratong_river/kratong_river.component';
 import { Kratong } from '../app/ts/kratong';
 import { Renderer2, Type } from '@angular/core';
 

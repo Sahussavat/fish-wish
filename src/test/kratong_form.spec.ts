@@ -1,5 +1,5 @@
 import { TestBed } from "@angular/core/testing";
-import { KratongForm } from "../app/components/kratong_form.component";
+import { KratongForm } from "../app/components/kratong_form/kratong_form.component";
 
 describe('KratongForm', () => {
   beforeEach(async () => {
