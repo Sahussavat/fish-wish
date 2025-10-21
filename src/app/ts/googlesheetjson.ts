@@ -67,7 +67,7 @@ export class GoogleSheetJSON {
             let data : V[] = data_rows[i]
             let d : Data = {}
             for(let k =0;k<Object.keys(first_row).length;k++){
-                d[first_row[k]['v'].replaceAll("string:","").replaceAll(" ","")] = data[k]['v'].replaceAll("string:","")
+                d[(first_row[k]['v']+"").replaceAll("string:","").replaceAll(" ","")] = (data[k]['v']+"").replaceAll("string:","")
             }
             ret.push(d)
         }
