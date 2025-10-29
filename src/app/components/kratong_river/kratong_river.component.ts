@@ -56,8 +56,8 @@ export class KratongRiver implements OnInit {
         m_c++
       }
       this.previous_i = section_i
-      let start = section_i * KratongRiver.MAX_KRATONGS + 1
-      let end = Math.min(start + KratongRiver.MAX_KRATONGS - 1, n+1)
+      let start = (section_i * KratongRiver.MAX_KRATONGS + 1, (n) - KratongRiver.MAX_KRATONGS + 1)
+      let end = Math.min(start + KratongRiver.MAX_KRATONGS - 1, n)
 
       return [ start, end ]
     }
