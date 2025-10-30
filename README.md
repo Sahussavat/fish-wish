@@ -20,7 +20,7 @@ npm install
 
 ## Changing Google Sheet for Storing Data
 
-First, duplicate this goole sheet: https://docs.google.com/spreadsheets/d/1eTYD9DGdHLIaQqH1TSTBfRAF5HuXb1Plpvgg7_xZ-S8/edit?usp=sharing.
+First, duplicate this google sheet: https://docs.google.com/spreadsheets/d/1eTYD9DGdHLIaQqH1TSTBfRAF5HuXb1Plpvgg7_xZ-S8/edit?usp=sharing.
 This method will also auto duplicate google forms for this sheet too.
 
 (Duplicated google forms and google sheet, both must be share to public). 
